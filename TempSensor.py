@@ -1,5 +1,10 @@
 import Adafruit_DHT
 import time
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(21,GPIO.OUT)
 
 # Set sensor type : Options are DHT11,DHT22 or AM2302
 sensor=Adafruit_DHT.DHT11
@@ -17,5 +22,10 @@ while True:
     if humidity is not None and temperature is not None:
         print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
     else:
-        print('Failed to get reading. Try again! Don t give up!')
+        print('Failed to get reading. Try again! Dont give up!')
+    print "LED on"
+    GPIO.output(18,GPIO.HIGH)
+    time.sleep(1)
+    print "LED off"
+    GPIO.output(18,GPIO.LOW)
     time.sleep(30)
