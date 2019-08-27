@@ -23,9 +23,9 @@ while True:
         print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
     else:
         print('Failed to get reading. Try again! Dont give up!')
-    print "LED on"
-    GPIO.output(18,GPIO.HIGH)
-    time.sleep(1)
-    print "LED off"
-    GPIO.output(18,GPIO.LOW)
+    print ("LED on")
+    GPIO.output(21,GPIO.HIGH)
+    time.sleep(5)
+    print ("LED off")
+    GPIO.output(21,GPIO.LOW)
     time.sleep(30)
