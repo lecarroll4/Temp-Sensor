@@ -12,6 +12,8 @@ sensor=Adafruit_DHT.DHT11
 # Set GPIO sensor is connected to
 gpio=17
 
+humidity=0
+temperature=0
 
 while humidity is not None and temperature is not None:
     humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio)
