@@ -22,6 +22,7 @@ while True:
         print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
     else:
         print('Failed to get reading. Try again! Dont give up!')
+        GPIO.output(21,GPIO.LOW)
     
     if temperature > 75:
         print ("Too hot!")
@@ -29,4 +30,8 @@ while True:
     else:
         print ("Tempurature Normal")
         GPIO.output(21,GPIO.LOW)
+    
+    if humidity is None and temperature is None:
+        GPIO.output(21,GPIO.LOW)
+        print ("No Data")
     time.sleep(30)    
